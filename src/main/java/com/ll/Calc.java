@@ -16,6 +16,8 @@ public class Calc {
                 result += num;
             } else if (operator.equals("-")) {
                 result -= num;
+            } else if (operator.equals("*")) {
+                result *= num;
             }
         }
         return result;
