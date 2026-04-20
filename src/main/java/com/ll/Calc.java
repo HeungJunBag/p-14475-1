@@ -6,6 +6,18 @@ import java.util.List;
 
 public class Calc {
     public static int run(String expression) {
+        while (expression.contains("(")) {
+            int closeIdx = expression.indexOf(")");
+
+            int openIdx = expression.lastIndexOf("(", closeIdx);
+
+            String inner = expression.substring(openIdx + 1, closeIdx);
+
+            int innerResult = run(inner);
+
+            expression = expression.substring(0, openIdx) + innerResult + expression.substring(closeIdx + 1);
+        }
+
         List<String> tokens = new ArrayList<>(Arrays.asList(expression.split(" ")));
 
         // 곱셈 계산 처리
