@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Calc {
     public static int run(String expression) {
+
+        // 괄호 처리
         while (expression.contains("(")) {
             int closeIdx = expression.indexOf(")");
 
@@ -53,6 +55,5 @@ public class Calc {
         }
 
         return result;
-
     }
 }
